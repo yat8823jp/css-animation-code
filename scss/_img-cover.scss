@@ -1,0 +1,30 @@
+.img-cover {
+	width: 300px;
+	position: relative;
+	overflow: hidden;
+	&::before {
+		content: "";
+		width: 50%;
+		height: 100%;
+		background: #000;
+		transform-origin: 0 50% 0;
+		transform: skewX( 20deg );
+		transition: width .7s cubic-bezier( .21, 1.06, .93, .96 ), left .7s cubic-bezier( .18, .85, .85, .94 ) .2s;
+		top: 0;
+		left: -100%;
+		position: absolute;
+		z-index: 2;
+	}
+	&:hover {
+		&::before {
+			width: 200%;
+			left: 130%;
+			transition: width .7s cubic-bezier( .21, 1.06, .93, .96 ), left .7s cubic-bezier( .18, .85, .85, .94 ) .2s;
+		}
+	}
+	img {
+		width: 100%;
+		position: relative;
+		display: block;
+	}
+}

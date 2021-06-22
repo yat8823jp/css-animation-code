@@ -1,0 +1,121 @@
+.wrap {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.circle {
+	width: 300px;
+	height: 300px;
+	background: #ccc;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 0;
+	&::before {
+		content: "";
+		// width: 0;
+		// height: 0;
+		background: #fff;
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% ) rotate( 45deg );
+		z-index: 1;
+	}
+	&::after {
+		content: "";
+		width: 80%;
+		height: 80%;
+		background: #fff;
+		display: block;
+		position: absolute;
+		top: 10%;
+		left: 10%;
+		transform-origin: center;
+		transform: scale( 0, 0 ) rotate( 45deg );
+		z-index: 1;
+	}
+	span {
+		opacity: 0;
+	}
+	&:hover {
+		background: #B4EBEB;
+		&::before {
+			// width: 100%;
+			height: 100%;
+			// transition: width .15s linear 0s;
+			animation-name           : circle;
+			animation-duration       : .15s;
+			animation-timing-function: linear;
+			animation-delay          : .0s;
+			animation-iteration-count: 1;
+			animation-direction      : normal;
+			animation-fill-mode      : forwards;
+			animation-play-state     : running;
+
+		}
+		&::after {
+			background: #B4EBEB;
+			// animation: square .4s linear .1s 1 normal forwards running;
+			animation-name           : square;
+			animation-duration       : .8s;
+			animation-timing-function: linear;
+			animation-delay          : .2s;
+			animation-iteration-count: 1;
+			animation-direction      : normal;
+			animation-fill-mode      : forwards;
+			animation-play-state     : running;
+		}
+		span {
+			font-family: oswald;
+			font-size: 40px;
+			font-weight: bold;
+			position: absolute;
+			margin-bottom: -20px;
+			z-index: 2;
+			color: #36A5A5;
+			opacity: 0;
+			animation: typography .4s linear .8s 1 normal forwards running;
+		}
+	}
+}
+@keyframes circle {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}
+@keyframes square {
+	0% {
+		transform: scale( 0, 0 ) rotate( 45deg );
+	}
+	10% {
+		transform: scale( 1, 1 );
+	}
+	50% {
+		transform: scale( 1, 1 ) rotate( 180deg );
+	}
+	75% {
+		transform: scale( 1, 0.01 ) rotate( 180deg );
+	}
+	100% {
+		transform: scale( 0, 0.01 ) rotate( 180deg );
+	}
+}
+
+@keyframes typography {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		margin-bottom: 20px;
+	}
+}
