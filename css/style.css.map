@@ -7,7 +7,7 @@
         "../scss/_bt-liner.scss",
         "../scss/_img-cover.scss",
         "../scss/circle.scss",
-        "../scss/_hexagon.scss"
+        "../scss/hexagon.scss"
     ],
     "names": [],
     "file": "style.css"
